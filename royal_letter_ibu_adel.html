@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Royal Letter for Ibu Adel</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@500;600&family=Lora:wght@400;500;600&display=swap');
+:root{--blue:#b9d5ed;--deep:#345777;--gold:#b89555;--paper:#fffdf7;--ink:#42566d}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:'Cormorant Garamond',serif;background:radial-gradient(ellipse at 20% 10%,#f8fcff 0,#dceafa 38%,#a9c5e1 100%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:26px 26px}
+.stage{min-height:100vh;display:grid;place-items:center;padding:34px 16px;position:relative}
+.glow{position:absolute;width:320px;height:320px;border-radius:50%;background:#fff;filter:blur(90px);opacity:.45;top:10%;left:calc(50% - 160px)}
+.cover{position:relative;z-index:1;width:min(570px,94vw);text-align:center;padding:38px 24px 42px;border:1px solid #d7c49b;border-radius:8px;background:linear-gradient(145deg,#fdfbf5,#e9e2d5);box-shadow:0 25px 70px #47658255,inset 0 0 0 7px #fff9,inset 0 0 0 8px #c8ad78}
+.cover:before,.cover:after{content:"";position:absolute;left:18px;right:18px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cover:before{top:20px}.cover:after{bottom:20px}
+.crown{font-size:36px;color:var(--gold);margin-bottom:12px}
+.eyebrow{letter-spacing:4px;text-transform:uppercase;font-size:12px;color:#8d7955}
+h1{font-family:'Great Vibes',cursive;font-size:clamp(42px,10vw,68px);font-weight:400;color:#456b91;margin:12px 0}
+.subtitle{font-size:18px;letter-spacing:1px;color:#7c8793}
+.scroll-wrap{height:140px;display:flex;align-items:center;justify-content:center;margin:22px auto 16px;position:relative}
+.scroll{width:min(360px,82vw);height:82px;border-radius:45px;background:linear-gradient(90deg,#d6c9b2,#fffdf5 12%,#f8f2e6 88%,#c8b99f);box-shadow:0 13px 20px #5b6e8244,inset 0 0 0 2px #b99d6b;position:relative;transition:transform 1.4s ease,opacity .8s}
+.scroll:before,.scroll:after{content:"";position:absolute;top:-5px;width:25px;height:92px;border-radius:18px;background:linear-gradient(90deg,#c7b89d,#fff9e9,#bca987);box-shadow:inset 0 0 0 2px #b69c6c}
+.scroll:before{left:-8px}.scroll:after{right:-8px}
+.twine{position:absolute;width:220px;height:90px;border:3px solid #a88a5d;border-radius:50%;transform:rotate(-8deg);z-index:2;pointer-events:none}
+.twine:before{content:"";position:absolute;right:-5px;top:-5px;width:35px;height:24px;border:3px solid #a88a5d;border-radius:50%;transform:rotate(35deg)}
+.seal{position:absolute;z-index:3;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 28%,#d96b6b,#9f252d 70%);border:3px solid #e4b2a4;box-shadow:0 5px 10px #54333366;color:#f8e7ce;font-size:28px;transition:transform .7s,opacity .7s}
+.open-btn{border:1px solid #b7975c;background:linear-gradient(#fffdf7,#eee3ce);color:#536c85;padding:13px 28px;border-radius:30px;font-family:'Playfair Display',serif;letter-spacing:1px;font-size:14px;box-shadow:0 6px 16px #667c9433;cursor:pointer;transition:.25s}
+.open-btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px #667c9444}
+.hint{font-size:14px;color:#8796a5;margin-top:13px;font-style:italic}
+
+/* Two-step royal reveal: sealed envelope, then tied parchment scroll */
+.envelope-stage{display:none;position:relative;z-index:1;width:min(570px,94vw);text-align:center;padding:32px 20px 36px}
+.envelope{width:min(390px,82vw);height:250px;margin:24px auto 26px;position:relative;filter:drop-shadow(0 18px 18px #46617c44);perspective:900px}
+.env-back{position:absolute;inset:0;border:1px solid #c5a66d;border-radius:8px;background:linear-gradient(145deg,#fffdf8,#e9e1d2);box-shadow:inset 0 0 0 7px #fff9,inset 0 0 0 8px #c8ad78}
+.env-left,.env-right,.env-bottom{position:absolute;inset:0;border-radius:8px;overflow:hidden}
+.env-left:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#f7f1e6,#e5d8c3);clip-path:polygon(0 0,52% 53%,0 100%);border-left:1px solid #c9b58e}
+.env-right:before{content:"";position:absolute;inset:0;background:linear-gradient(225deg,#f7f1e6,#e5d8c3);clip-path:polygon(100% 0,48% 53%,100% 100%)}
+.env-bottom:before{content:"";position:absolute;inset:0;background:linear-gradient(#f3ecdf,#e2d4bd);clip-path:polygon(0 100%,50% 43%,100% 100%);border-bottom:1px solid #c9b58e}
+.env-flap{position:absolute;inset:0;background:linear-gradient(160deg,#fffdf7,#e8decd);clip-path:polygon(0 0,100% 0,50% 57%);transform-origin:top;transition:transform .85s ease;z-index:4;border-top:1px solid #c9b58e}
+.env-seal{position:absolute;z-index:5;left:50%;top:52%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 28%,#d96b6b,#9f252d 70%);border:3px solid #e4b2a4;color:#fff0d9;font-size:29px;box-shadow:0 5px 12px #54333355;transition:opacity .4s,transform .6s}
+.envelope-stage.opened .env-flap{transform:rotateX(180deg)}
+.envelope-stage.opened .env-seal{opacity:0;transform:translate(-50%,-50%) scale(1.6)}
+.scroll-stage{display:none;position:relative;z-index:1;width:min(570px,94vw);text-align:center;padding:30px 18px 36px;animation:rise .8s ease both}
+.scroll-stage .scroll-wrap{height:190px;margin:22px auto 14px}
+.scroll-stage .scroll{width:min(390px,82vw);height:112px;border-radius:55px;background:linear-gradient(90deg,#c8b99f,#fffdf5 13%,#f8f2e6 87%,#c8b99f);box-shadow:0 16px 24px #5b6e8244,inset 0 0 0 2px #b99d6b}
+.scroll-stage .scroll:before,.scroll-stage .scroll:after{height:122px;top:-5px;width:31px}
+.scroll-stage .twine{width:250px;height:120px;border-width:4px;border-color:#98764c}
+.scroll-stage .seal{width:72px;height:72px}
+.scroll-stage.unrolling .scroll{transform:scaleX(1.7) scaleY(.48);opacity:0}
+.scroll-stage.unrolling .seal{transform:translate(-50%,-50%) scale(1.7) rotate(25deg);opacity:0}
+.scroll-stage.unrolling .twine{opacity:0;transition:opacity .4s}
+.letter-area{display:none;position:relative;z-index:2;width:min(790px,96vw);margin:0 auto 45px;animation:rise 1.2s ease both}
+.paper{position:relative;padding:clamp(28px,6vw,64px);background:linear-gradient(135deg,#fffefa,#f7f2e9);border:1px solid #c5a66d;box-shadow:0 25px 65px #3d5d7b44,inset 0 0 0 8px #fff,inset 0 0 0 9px #ddc99f;overflow:hidden}
+.paper:before{content:"";position:absolute;inset:17px;border:1px solid #d6bd8d;pointer-events:none}
+.corner{position:absolute;color:#c0a16a;font-size:30px;opacity:.8}.tl{top:22px;left:27px}.tr{top:22px;right:27px}.bl{bottom:22px;left:27px}.br{bottom:22px;right:27px}
+.letter-head{text-align:center;position:relative;padding:5px 0 22px}
+.letter-head .mini-crown{font-size:30px;color:var(--gold)}
+.letter-head .rule{height:1px;width:72%;margin:12px auto;background:linear-gradient(90deg,transparent,#c0a16a,transparent)}
+.letter-head h2{font-family:'Great Vibes',cursive;font-size:clamp(38px,8vw,55px);font-weight:400;color:#456b91;margin:0}
+.recipient{font-family:'Playfair Display',serif;color:#8c7045;font-size:18px;text-align:left;margin:12px 0 18px}
+.message{font-family:'Lora', Georgia, serif;font-size:17px;font-weight:400;line-height:1.82;letter-spacing:.12px;color:#394f68;text-align:left;white-space:pre-line;position:relative;z-index:1;padding:4px 2px}
+.message p{margin:0 0 20px;text-wrap:pretty}
+.message p:first-child::first-letter{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.7em;line-height:.8;float:left;padding:7px 7px 0 0;color:#a88750}
+.message p:last-child{margin-bottom:0}
+.recipient{font-family:'Playfair Display',Georgia,serif;font-size:17px;letter-spacing:.35px;color:#8c7045;text-align:left;margin:12px 0 22px;padding-bottom:10px;border-bottom:1px solid #e2d3b5}
+.signoff{text-align:right;margin-top:30px;font-family:'Great Vibes',cursive;font-size:36px;color:#456b91}
+.seal-small{position:absolute;right:clamp(26px,6vw,64px);bottom:35px;width:65px;height:65px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 28%,#d96b6b,#9e202a 70%);border:3px solid #e6b5a7;color:#fff0d9;font-size:26px;box-shadow:0 5px 10px #54333333}
+.footer{text-align:center;color:#6e8297;font-style:italic;font-size:15px;margin-top:20px}
+.show{display:block}
+.opening .scroll{transform:scaleX(1.6) scaleY(.72);opacity:0}
+.opening .seal{transform:translate(-50%,-50%) scale(1.8) rotate(-25deg);opacity:0}
+.opening .twine{opacity:0;transition:opacity .4s}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:520px){.message{font-size:15.5px;line-height:1.78;letter-spacing:0}.message p{margin-bottom:17px}.paper{padding:35px 28px}.seal-small{width:52px;height:52px;right:25px;bottom:25px}.signoff{margin-bottom:48px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<section class="stage" id="intro">
+<div class="glow"></div>
+<div class="envelope-stage" id="envelopeStage" style="display:block">
+  <div class="crown">♛</div>
+  <div class="eyebrow">A royal delivery for you</div>
+  <h1>To My Dearest Ibu Adel</h1>
+  <div class="subtitle">A little letter, sealed with love</div>
+  <div class="envelope" id="envelope">
+    <div class="env-back"></div><div class="env-left"></div><div class="env-right"></div><div class="env-bottom"></div><div class="env-flap"></div><div class="env-seal">♛</div>
+  </div>
+  <button class="open-btn" id="openEnvelope">✦ Open the Envelope ✦</button>
+  <div class="hint">A special message is waiting inside</div>
+</div>
+<div class="scroll-stage" id="scrollStage">
+  <div class="crown">♛</div>
+  <div class="eyebrow">A message enclosed with care</div>
+  <h1>The Royal Scroll</h1>
+  <div class="subtitle">Tied with a little love, written from the heart</div>
+  <div class="scroll-wrap"><div class="scroll"></div><div class="twine"></div><div class="seal">♛</div></div>
+  <button class="open-btn" id="unrollLetter">✦ Unroll the Letter ✦</button>
+  <div class="hint">Your letter is ready to be discovered</div>
+</div>
+</section>
+<main class="letter-area" id="letter">
+<article class="paper">
+<span class="corner tl">❧</span><span class="corner tr">❧</span><span class="corner bl">❧</span><span class="corner br">❧</span>
+<header class="letter-head">
+<div class="mini-crown">♛</div>
+<h2>A Message From Salsa</h2>
+<div class="rule"></div>
+</header>
+<div class="recipient">To : Ibu Adel</div>
+<div class="message">
+<p>Halo kak, ini salsa wkwk. Padahal surat nya ditujukan untuk ibu tapi aku manggil nya kak. Cuz ur still ma mom for every experience in college.</p>
+<p>Apakabar kak? long time no text and see u. Aku tau pesan terakhir kali kak adel belum aku bales, lebih tepatnya banyak yg tidak aku balas. Maaf sudah membuat khawatir dan terimakasih banyak kak selalu peduli pada ku.</p>
+<p>How's my day? Everything should be okay, right? I'm okayy, seperti biasa gonjang ganjing nya banyak</p>
+<p>Anyway maaf kak hanya itu yg bisa aku beri ke kak adel, ga sepadan dengan apa yg pernah kakak kasih ke aku, ntar kalau aku dah kerja aku kasih gift yg wahhh yaa. then for the money it's fake cuz i think when i give u the bouquet it's just a graduation doll and the flower, it's too simple, honestly i don't like it. tapiii doain yaa kak biar aku banyak uang dan sukses biar bisa kasih kakak sebanyak ituuu.</p>
+<p>I know it's too late but the gift for semprotulation, semhas and graduation become one, is it okay kak? not much but i hope u like it with ur favorite colour</p>
+<p>Selamat kak untuk semuanya, aku tau kerja keras kakak sampai di titik menyelesaikan pendidikan kakak. Aku selalu berdoa kakak selalu sukses, panjang umur, sehat selalu, rezeki nya derassss, dapat kerja yg enakk dan gaji nya gede sama lingkungannya nyaman. kalau dunia lagi jahat sama kakak gapapaaa kakk nangis dan ngeluh aja, capek itu wajar kok, terimakasih banyak nasihat, pesan dan apapun itu yg pernah kakak kasih ke aku. Semoga hal baik selalu kembali ke kakak. WYATB</p>
+<p>So yeah, see u on top kak, have a great day, good luck. Jangan dibalas by wa long text kak lagi kumat soalnya. But my pleasure kak</p>
+</div>
+<div class="signoff">With love, Salsa</div>
+<div class="seal-small">♛</div>
+</article>
+<div class="footer">✧ Sealed with warm wishes ✧</div>
+</main>
+<script>
+const envelopeStage=document.getElementById('envelopeStage');
+const scrollStage=document.getElementById('scrollStage');
+document.getElementById('openEnvelope').addEventListener('click',()=>{
+  envelopeStage.classList.add('opened');
+  const button=document.getElementById('openEnvelope'); button.disabled=true;
+  button.textContent='The seal is opening…';
+  setTimeout(()=>{envelopeStage.style.display='none';scrollStage.style.display='block';window.scrollTo({top:0,behavior:'smooth'});},950);
+});
+document.getElementById('unrollLetter').addEventListener('click',()=>{
+  scrollStage.classList.add('unrolling');
+  const button=document.getElementById('unrollLetter'); button.disabled=true;
+  button.textContent='Unfolding your message…';
+  setTimeout(()=>{
+    document.getElementById('intro').style.display='none';
+    document.getElementById('letter').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  },1050);
+});
+</script>
+</body>
+</html>
